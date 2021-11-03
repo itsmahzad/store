@@ -1,0 +1,6 @@
+{% for item in cartitem %}  
+    <div>
+        </div><p> <a href="{% url 'products:detail' item.product.id %}">{{item.clothing.clothing_name}}</a></p></div>
+        </div><p>{{item.quantity}}</p></div>
+    </div>
+{% endfor %}

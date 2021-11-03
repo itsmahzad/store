@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.urls.conf import path
 from .models import *
-from django.http import HttpResponse, JsonResponse
 from .filters import ProductFilter
 
 
@@ -15,11 +13,8 @@ def detail(request, id):
     
 
 def home(request):
-
-    product_filter = ProductFilter()
     context = {
-        "products": Clothing.objects.all(),
-        'product_filter': product_filter
+        "products": Clothing.objects.all()
     }
     return render(request, 'home.html', context)
 
@@ -27,3 +22,6 @@ def product_detail(request):
     return render(request, '')
 
 
+def product_list(request):
+    myfilter = ProductFilter(request.GET, queryset=Clothing.objects.all())
+    return render(request, 'product_list.html', {'filter': myfilter})
