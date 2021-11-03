@@ -1,0 +1,11 @@
+<h3>Edit Profile</h3>
+{% if user.is_authenticated %}
+    <form action="" method="Post">
+        {% csrf_token %}
+        {{username_change_form.as_p}}
+        {{profile_form.as_p}}
+        <input type="submit" name="Save">
+    </form>
+{% else %}
+    <h3>Get out of here!!!</h3>
+{% endif %}

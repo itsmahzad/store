@@ -1,0 +1,8 @@
+<h3>Register</h3>
+<form action="" method="Post">
+    {% csrf_token %}
+    {{user_form.as_p}}
+    {{profile_form.as_p}}
+    <input type="submit" name="Creat User">
+</form>
+<p>Already have an account? <a href="{% url 'accounts:login' %}">Login</a></p>
