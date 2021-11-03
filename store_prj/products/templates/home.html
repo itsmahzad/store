@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="title">Moon Store</h1>
+<link rel="stylesheet"  type="text/css" href="{%  static  'css/stylesheet_home.css'  %}">
+<p>All sort of clothings</p>
+
+<form type="get" action="exact_url" >
+    {{product_filter.form}} 
+    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." > 
+    <button id="search_submit" type="submit" >Submit</button> 
+</form> 
+
+
+<ul>
+
+    {% for product in products %}
+        <div class="container">
+            <div class="container_item"><li>{{product.clothing_name}}</li></div>
+            <div class="container_item"><li>{{product.base_price}}</li></div>
+            <div class="container_item"><li>{{product.discounted_price}}</li></div>
+            <div class="container_item"><a href="{{ product.id }}" id= "detail-link">Details</a></div>
+            <div class="container_item"><a href="/cart/add/{{ product.id }}"><h3>+</h3></a></div>
+            <div class="container_item"><a href="/cart/remove/{{ product.id }}"><h3>-</h3></a></div>
+        </div>
+    {% endfor %}
+    <style>
+        .container {
+            margin: 10px;
+            display: flex;
+        }
+        .container_item {
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid black;
+        }
+    </style>
+
+{% endblock %}
+</ul>
+

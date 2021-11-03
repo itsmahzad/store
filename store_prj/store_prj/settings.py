@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'accounts.apps.AccountsConfig',
     'rest_framework',
+    'django_filters',
+    'djmoney',
 ]
 
 MIDDLEWARE = [

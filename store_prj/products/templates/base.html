@@ -1,0 +1,41 @@
+<!doctype html>
+{% load static %}
+
+<html>
+
+<head>
+<link rel="shortcut icon" type="image/png" href="templates/download.png">
+
+    <link rel="stylesheet"  type="text/css" href="{%  static  'css/stylesheet_base.css'  %}">
+    <title>Moon Store</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="">Home</a> |
+            <a href="">About us</a> |
+            <!-- {% if user.is_authenticated %} -->
+            <a href="{% url 'accounts:edit-profile' %}">Edit Profile</a> |
+            <a href="{% url 'accounts:user-home' %}">User Panel</a> |
+            <!-- {% else %} -->
+            <a href="{% url 'accounts:login' %}">Login</a> |
+            <!-- {% endif %} -->
+
+        </nav>
+
+    </header>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+</body>
+<h2 class="contact">Contact us</h2>
+<form class="form">
+    <input class="name-input" type="text" placeholder="Full name">
+    <input class="email-input" type="email" placeholder="Email">
+    <button class="submit-button">Submit</button>
+</form>
+
+
+</html>
